@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="To-DoList.css">
+</head>
+<body>
+
+<div id="todo-container">
+  <h2 id="heading">To-Do List <span><label for="new-todo">&#43</label></span></h2>
+  <input type="text" id="new-todo" placeholder="Add a new task">
+  <button onclick="addTodo()">Add Task</button>
+  <ul id="todo-list"></ul>
+</div>
+
+<script>
+  function addTodo()
+   {
+    var todoInput = document.getElementById("new-todo");
+    var todoList = document.getElementById("todo-list");
+
+    if (todoInput.value.trim() !== "")
+     {
+      var listItem = document.createElement("li");
+      listItem.className = "todo-item";
+
+     var checkbox = document.createElement("input");
+     checkbox.type = "checkbox";
+     listItem.appendChild(checkbox);
+
+     var taskText = document.createTextNode(todoInput.value);
+     listItem.appendChild(taskText);
+        
+    todoList.appendChild(listItem);
+
+    todoInput.value = "";
+    }
+}
+</script>
+</body>
+</html>
